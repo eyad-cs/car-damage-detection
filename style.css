@@ -1,0 +1,1020 @@
+/* الخطوط المحلية: العادي والعريض */
+@font-face {
+  font-family: "Baseera";
+  src: url("assets/fonts/arabic-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Baseera";
+  src: url("assets/fonts/arabic-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+/* تنسيق عام مشترك بين الصفحات */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: #182c2b;
+  background: #f5f7f8;
+  font-family: "Baseera", Tahoma, Arial, sans-serif;
+  line-height: 1.8;
+}
+button, input, select, textarea { font: inherit; }
+a {
+  color: #126859;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+button, .question-title, .chat-button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+h1, h2, h3, h4, p { margin: 0; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
+img { max-width: 100%; }
+.icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+.container {
+  width: 92%;
+  margin: auto;
+  max-width: 1280px;
+}
+.main {
+  min-height: 80vh;
+  padding: 32px 0 48px;
+}
+.gray-text { color: #627571; }
+.small-text { font-size: 14px; }
+.full-width { width: 100%; }
+a:focus, button:focus, input:focus, select:focus, textarea:focus, summary:focus {
+  outline: 3px solid #409984;
+  outline-offset: 4px;
+}
+/* الهيدر: الشعار والقائمة */
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #dfe7e4;
+}
+.header-row {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #182c2b;
+}
+.logo:hover { text-decoration: none; }
+.logo img {
+  width: 44px;
+  height: 44px;
+}
+.logo > span {
+  display: flex;
+  line-height: 1.2;
+  flex-direction: column;
+}
+.logo b { font-size: 29px; }
+.logo-english {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-top: 6px;
+}
+.menu {
+  display: flex;
+  gap: 25px;
+}
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 88px;
+  padding: 0 8px;
+  color: #627571;
+  border-bottom: 3px solid transparent;
+  font-size: 15px;
+  font-weight: 700;
+}
+.menu a:hover {
+  color: #126859;
+  text-decoration: none;
+}
+.menu a.active {
+  color: #126859;
+  border-bottom-color: #126859;
+}
+.menu .icon {
+  width: 19px;
+  height: 19px;
+}
+.university {
+  color: #627571;
+  border: 1px solid #dfe7e4;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+/* عنوان الصفحة والشارات */
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+.page-path {
+  color: #627571;
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+.page-path span {
+  margin: 0 9px;
+  color: #98a7a2;
+}
+h1 {
+  font-size: 32px;
+  line-height: 1.7;
+}
+h1 span { color: #126859; }
+.page-description {
+  margin-top: 5px;
+  color: #627571;
+}
+.info-badge {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 12px;
+  border: 1px solid #d5e4dc;
+  border-radius: 7px;
+  background: #eef5f1;
+  color: #126859;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 400;
+  background: #fcf2d9;
+  color: #7d5d20;
+  padding: 3px 9px;
+  border-radius: 5px;
+}
+.badge.green-badge {
+  color: #126859;
+  background: #eef5f1;
+}
+/* الصناديق والحقول والأزرار المشتركة */
+.box {
+  background: #ffffff;
+  border: 1px solid #dfe7e4;
+  border-radius: 14px;
+}
+.icon-box {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  flex-shrink: 0;
+  color: #126859;
+  border-radius: 12px;
+  background: #eef5f1;
+  align-items: center;
+  justify-content: center;
+}
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 24px;
+}
+.section-heading h2 { font-size: 18px; }
+.section-heading p {
+  color: #627571;
+  font-size: 13px;
+  margin-top: 3px;
+}
+.field {
+  min-width: 0;
+  margin-bottom: 18px;
+}
+.field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 7px;
+  color: #445e56;
+}
+.field input, .field select {
+  width: 100%;
+  min-height: 47px;
+  padding: 8px 12px;
+  border: 1px solid #dfe7e4;
+  border-radius: 7px;
+  color: #182c2b;
+  background: white;
+  font-size: 15px;
+}
+/* flex يضع الحقول بجانب بعض، و gap يحدد المسافة بينها. */
+.field-row {
+  display: flex;
+  gap: 12px;
+}
+.field-row .field { flex: 1; }
+.note {
+  color: #627571;
+  font-size: 13px;
+  line-height: 1.9;
+  margin-top: 12px;
+}
+.search-status {
+  margin-top: 12px;
+  padding: 12px;
+  text-align: center;
+  color: #126b5c;
+  background: #eef5f1;
+  border-radius: 9px;
+}
+.divider {
+  height: 1px;
+  background: #dfe7e4;
+  margin: 24px 0;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 10px 19px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+.button:hover { text-decoration: none; }
+.button.green-button {
+  background: #126859;
+  color: white;
+}
+.button:disabled {
+  background: #688d83;
+  color: white;
+}
+.button.white-button {
+  border-color: #dfe7e4;
+  background: white;
+  color: #126859;
+}
+.button.white-button:hover { background: #eef5f1; }
+/* الصفحة الرئيسية: خطوات الفحص */
+.steps {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 21px 28px;
+  display: flex;
+  gap: 28px;
+  background: white;
+  border: 1px solid #dfe7e4;
+  border-radius: 12px;
+}
+.step {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #627571;
+  flex: 1;
+}
+.step-number {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  flex-shrink: 0;
+  border: 1px solid #dfe7e4;
+  border-radius: 50%;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+}
+.step b {
+  display: block;
+  font-size: 14px;
+}
+.step-text {
+  display: block;
+  font-size: 12px;
+}
+.step.active { color: #126859; }
+.step.active .step-number {
+  background: #126859;
+  color: white;
+  border-color: #126859;
+  box-shadow: 0 0 0 4px #eef5f1;
+}
+/* الصفحة الرئيسية: بيانات السيارة ورفع الصور */
+.inspection-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.car-form {
+  padding: 24px;
+  width: 320px;
+  flex-shrink: 0;
+}
+.privacy-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: #126859;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+.privacy-note .icon { margin-top: 4px; }
+.upload-box {
+  padding: 25px;
+  flex: 1;
+  min-width: 0;
+}
+.upload-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 19px;
+}
+.upload-heading h2 { font-size: 22px; }
+.upload-area {
+  border: 2px dashed #b7cec5;
+  border-radius: 13px;
+  background: #f6fbf8;
+  padding: 25px 25px 20px;
+  text-align: center;
+}
+.upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 0 15px;
+}
+.upload-icon {
+  width: 76px;
+  height: 76px;
+  background: #e4f1eb;
+  border-radius: 22px;
+  display: flex;
+  color: #126859;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.upload-icon .icon {
+  width: 34px;
+  height: 34px;
+}
+.upload-label b {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+.upload-help {
+  color: #627571;
+  font-size: 14px;
+}
+.file-types {
+  color: #627571;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  margin-top: 10px;
+}
+.file-input {
+  display: block;
+  width: 100%;
+  max-width: 430px;
+  margin: 7px auto 0;
+  border: 1px solid #cbded4;
+  border-radius: 8px;
+  padding: 6px;
+  background: white;
+  color: #4a665c;
+  font-size: 13px;
+}
+.photo-tips {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 0;
+  border-bottom: 1px solid #dfe7e4;
+}
+.photo-tips span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: #627571;
+}
+.photo-tips .icon {
+  width: 18px;
+  height: 18px;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.actions .green-button { flex: 1; }
+/* النقاط الثلاث أسفل الصفحة الرئيسية */
+.features {
+  display: flex;
+  gap: 26px;
+  margin-top: 28px;
+  border-top: 1px solid #dfe7e4;
+  padding: 24px 0 0;
+}
+.features > div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex: 1;
+}
+.features .icon {
+  width: 26px;
+  height: 26px;
+}
+.features h3 { font-size: 14px; }
+.features p {
+  color: #627571;
+  font-size: 12px;
+  margin-top: 4px;
+}
+/* صفحة قطع الغيار: البحث والنتائج */
+.parts-layout {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+.search-form {
+  padding: 24px;
+  width: 305px;
+  flex-shrink: 0;
+}
+.results {
+  min-width: 0;
+  flex: 1;
+}
+.results-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 17px;
+}
+/* بطاقات المنتجات */
+.products {
+  display: flex;
+  gap: 17px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.product {
+  background: white;
+  border: 1px solid #dfe7e4;
+  border-radius: 12px;
+  padding: 22px;
+  width: 48%;
+  overflow-wrap: anywhere;
+  display: flex;
+  flex-direction: column;
+}
+.product-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.store-name {
+  color: #336aad;
+  direction: ltr;
+  font-family: Arial, sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+}
+.condition {
+  background: #eef5f1;
+  color: #526e59;
+  border-radius: 4px;
+  padding: 3px 9px;
+  font-size: 12px;
+}
+.product-name {
+  display: flex;
+  margin: 22px 0 18px;
+}
+.product-name h3 { font-size: 14px; }
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.price b {
+  font-size: 26px;
+  color: #126859;
+}
+.price > span {
+  font-size: 12px;
+  color: #627571;
+}
+.shipping {
+  margin: 18px 0 0;
+  font-size: 14px;
+}
+.shipping > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+}
+.shipping span { color: #627571; }
+.shipping b {
+  text-align: left;
+  font-weight: inherit;
+}
+.results-note {
+  color: #627571;
+  font-size: 13px;
+  margin-top: 18px;
+}
+.empty-results {
+  padding: 65px 28px;
+  text-align: center;
+  color: #627571;
+}
+.product-photo {
+  height: 170px;
+  margin-top: 18px;
+  border-radius: 9px;
+  background: #f7f9f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #627571;
+  font-size: 13px;
+  overflow: hidden;
+}
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.product-number {
+  color: #627571;
+  font-size: 12px;
+  margin: 18px 0 12px;
+}
+.product > .button { margin-top: auto; }
+/* صفحة التقرير التوضيحي */
+.report-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #7d622c;
+  background: #fcf6e8;
+  border: 1px solid #eddfbc;
+  border-radius: 9px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+.report-alert .icon { margin-top: 3px; }
+.report { padding: 28px; }
+.report-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #dfe7e4;
+  padding-bottom: 22px;
+}
+.report-heading .section-heading { margin-bottom: 0; }
+.report-body {
+  display: flex;
+  gap: 32px;
+  padding: 28px 0;
+}
+.damage-level {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f9f5e9;
+  color: #856727;
+  padding: 28px 20px;
+  border-radius: 11px;
+  width: 250px;
+  flex-shrink: 0;
+}
+.damage-level > span { font-size: 14px; }
+.damage-level b {
+  font-size: 38px;
+  margin: 4px 0;
+}
+.damage-level .damage-note { font-size: 12px; }
+.damage-meter {
+  display: flex;
+  gap: 6px;
+  width: 165px;
+  margin: 12px 0;
+  direction: ltr;
+}
+.damage-meter span {
+  flex: 1;
+  height: 6px;
+  border-radius: 5px;
+  background: #c3a04c;
+}
+.damage-meter .light-bar { background: #e5dac0; }
+.part-count {
+  background: #eef5f1;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+.damaged-parts {
+  flex: 1;
+  min-width: 0;
+}
+.damaged-part {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 23px 0;
+  border-bottom: 1px solid #dfe7e4;
+}
+.damaged-part h4 { font-size: 15px; }
+.damaged-part p {
+  font-size: 12px;
+  color: #627571;
+}
+.damaged-part a, .damaged-part > .small-text {
+  font-size: 13px;
+  margin-right: auto;
+}
+.part-number {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #dfe7e4;
+  border-radius: 50%;
+  display: flex;
+  color: #126859;
+  font-size: 12px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+.report-note {
+  display: flex;
+  gap: 9px;
+  color: #627571;
+  font-size: 14px;
+}
+.next-step {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-top: 25px;
+  padding: 24px;
+  border: 1px solid #d6e4d9;
+  background: #eef5ed;
+  border-radius: 12px;
+}
+.next-step h2 { font-size: 17px; }
+.next-step p {
+  font-size: 14px;
+  color: #627571;
+}
+.next-step .button { margin-right: auto; }
+.print-note {
+  margin-top: 18px;
+  font-size: 13px;
+  color: #627571;
+}
+/* صفحة عن المشروع والأسئلة */
+.about-box {
+  padding: 30px;
+  margin-bottom: 24px;
+  max-width: 950px;
+}
+.about-box > h2 { margin: 12px 0; }
+.about-box > p {
+  margin-top: 12px;
+  color: #465f57;
+}
+.question {
+  border-top: 1px solid #dfe7e4;
+  padding: 16px 0;
+}
+.question .question-title {
+  color: #126859;
+  font-weight: 700;
+}
+.question p {
+  color: #627571;
+  margin-top: 12px;
+  font-size: 15px;
+}
+/* نافذة المساعد الثابتة أسفل الشاشة */
+.chat {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 50;
+}
+.chat-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 19px;
+  min-height: 54px;
+  background: #126859;
+  color: white;
+  border: 1px solid #0b5044;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 6px 20px #12685930;
+}
+.chat-button:hover { background: #0b5044; }
+.chat-window {
+  position: absolute;
+  right: 0;
+  bottom: 72px;
+  width: 365px;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #dfe7e4;
+  border-radius: 17px;
+  box-shadow: 0 15px 55px #183c3026;
+}
+.chat-heading {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border-bottom: 1px solid #dfe7e4;
+  padding: 18px;
+}
+.chat-heading h2 { font-size: 17px; }
+.chat-heading p {
+  color: #627571;
+  font-size: 12px;
+}
+.chat-body {
+  padding: 19px;
+  min-height: 210px;
+}
+.chat-message {
+  background: #eef5f1;
+  color: #355a4b;
+  padding: 13px;
+  border-radius: 12px 0 12px 12px;
+  font-size: 14px;
+  margin: 14px 0 18px;
+}
+.chat-link {
+  display: block;
+  border: 1px solid #dfe7e4;
+  border-radius: 7px;
+  padding: 9px;
+  font-size: 13px;
+  margin-top: 8px;
+}
+.message-label {
+  display: block;
+  margin: 0 16px 4px;
+  font-size: 12px;
+  color: #627571;
+}
+.chat-input {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 16px;
+  padding: 8px;
+  border: 1px solid #dfe7e4;
+  border-radius: 9px;
+}
+.chat-input textarea {
+  border: 0;
+  resize: vertical;
+  min-width: 0;
+  flex: 1;
+  font-size: 14px;
+  padding: 5px;
+  color: #182c2b;
+  background: white;
+}
+.send-button {
+  display: flex;
+  width: 50px;
+  height: 36px;
+  border: 0;
+  border-radius: 7px;
+  background: #688d83;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.chat-note {
+  color: #627571;
+  padding: 12px 18px 17px;
+  font-size: 12px;
+}
+/* الفوتر: أسفل كل صفحة */
+.footer {
+  border-top: 1px solid #dfe7e4;
+  background: #f9fbfa;
+  color: #627571;
+  padding: 22px 0 100px;
+  font-size: 12px;
+}
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.footer-row b {
+  font-size: 18px;
+  color: #496b5b;
+  margin-left: 12px;
+}
+/* فتح السؤال وإغلاقه يتم بواسطة details؛ هذه القواعد تبدّل السهم فقط. */
+.question-title { display: block; }
+.question-title .arrow-closed, .question-title .arrow-open {
+  width: 15px;
+  font-size: 12px;
+  display: inline-block;
+}
+.question .arrow-open { display: none; }
+.question[open] .arrow-closed { display: none; }
+.question[open] .arrow-open { display: inline-block; }
+/* تعديلات الشاشات المتوسطة */
+@media (max-width: 1000px) {
+  .university { display: none; }
+  .inspection-layout, .parts-layout { gap: 18px; }
+  .upload-box, .car-form, .search-form { padding: 20px; }
+  .upload-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .upload-area { padding: 20px 15px; }
+  .upload-label b { font-size: 20px; }
+  .photo-tips { flex-wrap: wrap; }
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .report-body { gap: 22px; }
+  .car-form, .search-form { width: 280px; }
+  .product { width: 100%; }
+  .damage-level { width: 210px; }
+}
+/* تعديلات الجوال */
+@media (max-width: 700px) {
+  .upload-box { order: -1; }
+  .header-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 17px;
+    gap: 8px;
+  }
+  .logo { margin-left: auto; }
+  .logo img {
+    width: 36px;
+    height: 36px;
+  }
+  .logo b { font-size: 25px; }
+  .menu {
+    width: 100%;
+    justify-content: space-between;
+    gap: 4px;
+  }
+  .menu a {
+    min-height: 54px;
+    padding: 0 6px;
+    font-size: 13px;
+    gap: 6px;
+  }
+  .menu .icon {
+    width: 17px;
+    height: 17px;
+  }
+  .main { padding: 24px 0 35px; }
+  h1 { font-size: 25px; }
+  .page-description { font-size: 14px; }
+  .page-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .info-badge { font-size: 12px; }
+  .steps {
+    gap: 8px;
+    padding: 16px 10px;
+  }
+  .step {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  .step-text { display: none; }
+  .step b { font-size: 12px; }
+  .step-number {
+    width: 29px;
+    height: 29px;
+  }
+  .inspection-layout, .parts-layout {
+    flex-direction: column;
+  }
+  .upload-heading h2 { font-size: 21px; }
+  .upload-label b { font-size: 19px; }
+  .upload-help { font-size: 13px; }
+  .upload-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 15px;
+  }
+  .upload-area { padding: 18px 12px; }
+  .photo-tips {
+    justify-content: flex-start;
+    gap: 12px 18px;
+  }
+  .field input, .field select { font-size: 16px; }
+  .features {
+    gap: 22px;
+    flex-direction: column;
+  }
+  .features h3 { font-size: 15px; }
+  .features p { font-size: 13px; }
+  .report { padding: 20px; }
+  .report-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .report-body { flex-direction: column; }
+  .damaged-part {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .damaged-part a, .damaged-part > .small-text {
+    width: 100%;
+    padding-right: 38px;
+  }
+  .next-step {
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  .next-step > div { flex: 1; }
+  .next-step .button { width: 100%; }
+  .about-box { padding: 23px; }
+  .footer-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .chat {
+    right: 16px;
+    bottom: 16px;
+  }
+  .chat-window {
+    width: 90vw;
+    max-width: 365px;
+    bottom: 67px;
+  }
+  .chat-button {
+    min-height: 50px;
+    font-size: 13px;
+    padding: 11px 16px;
+  }
+  .chat-input textarea { font-size: 16px; }
+  .car-form, .search-form, .upload-box, .results, .damage-level, .damaged-parts { width: 100%; }
+  .upload-box, .results, .damaged-parts { flex: auto; }
+}

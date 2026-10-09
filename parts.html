@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <!-- إعدادات الصفحة: الحروف العربية، عرض الجوال، العنوان والتنسيق -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>قطع الغيار | بصيرة</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <!-- محتوى الصفحة الذي يظهر للمستخدم -->
+  <body>
+    <!-- الهيدر: الشعار وروابط الصفحات -->
+    <div class="header">
+      <div class="container header-row">
+        <a class="logo" href="index.html"> <img src="assets/logo.png" alt=""> <span><b>بصيرة</b> <span lang="en" class="logo-english">BASEERA</span></span> </a>
+        <div class="menu">
+          <a href="index.html"> <img class="icon" src="assets/inspection.png" alt=""> <span>مركز الفحص</span> </a>
+          <a href="parts.html" class="active"> <img class="icon" src="assets/parts-green.png" alt=""> <span>قطع الغيار</span> </a>
+          <a href="about.html"> <img class="icon" src="assets/about.png" alt=""> <span>عن بصيرة</span> </a>
+        </div>
+        <span class="university">مشروع جامعة تبوك</span>
+      </div>
+    </div>
+    <!-- المحتوى الرئيسي -->
+    <div class="container main">
+      <!-- عنوان الصفحة والوصف -->
+      <div class="page-heading">
+        <div>
+          <p class="page-path">قطع الغيار <span>/</span> البحث والمقارنة</p>
+          <h1>القطعة المناسبة. والخيارات <span>أمامك.</span></h1>
+          <p class="page-description">قارن السعر والحالة والشحن، وتحقق من رقم القطعة قبل الشراء.</p>
+        </div>
+        <span class="badge green-badge">عروض eBay</span>
+      </div>
+      <div class="parts-layout">
+        <!-- نموذج البحث: name هو اسم المعلومة المرسلة إلى Python -->
+        <form class="box search-form" id="search-form" method="post" action="/parts.html#search-results">
+          <div class="section-heading">
+            <span class="icon-box"> <img class="icon" src="assets/search.png" alt=""> </span>
+            <h2>عن أي قطعة تبحث؟</h2>
+          </div>
+          <div class="field">
+            <label for="car-make">الشركة المصنّعة</label>
+            <select id="car-make" name="make" required>
+              <option value="">اختر الشركة</option>
+              <option value="Toyota" {% if request.form.get('make') == 'Toyota' %}selected{% endif %}>تويوتا · Toyota</option>
+              <option value="Hyundai" {% if request.form.get('make') == 'Hyundai' %}selected{% endif %}>هيونداي · Hyundai</option>
+              <option value="Kia" {% if request.form.get('make') == 'Kia' %}selected{% endif %}>كيا · Kia</option>
+              <option value="Nissan" {% if request.form.get('make') == 'Nissan' %}selected{% endif %}>نيسان · Nissan</option>
+              <option value="Ford" {% if request.form.get('make') == 'Ford' %}selected{% endif %}>فورد · Ford</option>
+            </select>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="car-model">الطراز</label>
+              <input id="car-model" name="model" value="{{ request.form.get('model', '') }}" placeholder="مثل: Sunny" required>
+            </div>
+            <div class="field">
+              <label for="car-year">سنة الصنع</label>
+              <input id="car-year" name="year" value="{{ request.form.get('year', '') }}" type="number" min="1900" placeholder="2013" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="car-vin">رقم الهيكل VIN <span class="gray-text">(اختياري)</span></label>
+            <input id="car-vin" name="vin" value="{{ request.form.get('vin', '') }}" dir="ltr" placeholder="تقدر تتركه فارغًا">
+          </div>
+          <div class="field">
+            <label for="part-name">اسم القطعة</label>
+            <input id="part-name" name="partName" value="{{ request.form.get('partName', '') }}" placeholder="مثل: شمعة أمامية يمين" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="part-type">نوع القطعة</label>
+              <select id="part-type" name="partType">
+                <option value="any" {% if request.form.get('partType') == 'any' %}selected{% endif %}>الكل</option>
+                <option value="original" {% if request.form.get('partType') == 'original' %}selected{% endif %}>أصلي</option>
+                <option value="aftermarket" {% if request.form.get('partType') == 'aftermarket' %}selected{% endif %}>تجاري</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="part-condition">حالة القطعة</label>
+              <select id="part-condition" name="condition">
+                <option value="ANY" {% if request.form.get('condition') == 'ANY' %}selected{% endif %}>الكل</option>
+                <option value="NEW" {% if request.form.get('condition') == 'NEW' %}selected{% endif %}>جديد</option>
+                <option value="USED" {% if request.form.get('condition') == 'USED' %}selected{% endif %}>مستعمل</option>
+              </select>
+            </div>
+          </div>
+          <button class="button green-button full-width" type="submit">ابحث وقارن</button>
+          <p class="search-status" id="search-status" role="status" hidden>⏳ جاري البحث عن القطع، انتظر قليلًا...</p>
+          <p class="note">رقم الهيكل معلومة إضافية؛ تقدر تبحث بدونه باستخدام بيانات السيارة.</p>
+        </form>
+        <!-- نتائج البحث القادمة من خدمة n8n -->
+        <div class="results">
+          <div class="results-heading">
+            <div>
+              <h2>{% if items %}{{ items|length }} نتيجة{% else %}نتائج البحث{% endif %}</h2>
+              <p class="gray-text small-text">قارن العروض واختر الأنسب لك.</p>
+            </div>
+            <span class="store-name" lang="en">eBay</span>
+          </div>
+          <!-- رسالة تظهر إذا لم توجد نتائج -->
+          {% if not items %}
+          <div class="box empty-results" role="status">{{ message }}</div>
+          {% endif %}
+          <div class="products" id="search-results">
+            <!-- تكرار البطاقة التالية لكل منتج -->
+            {% for item in items %}
+            <div class="product">
+              <div class="product-heading">
+                <span class="store-name" lang="en">eBay</span>
+                <span class="condition">{{ item.get('condition') or 'غير محددة' }}</span>
+              </div>
+              <div class="product-photo">
+                {% if is_web_link(item.get('imageUrl')) %}
+                <img class="product-image" src="{{ item.imageUrl }}" alt="{{ item.title }}" loading="lazy">
+                {% else %}
+                <span>الصورة غير متوفرة</span>
+                {% endif %}
+              </div>
+              <div class="product-name"><h3 dir="auto">{{ item.title }}</h3></div>
+              <p class="price"><b dir="auto">{{ format_price(item.get('price')) }}</b><span>سعر القطعة</span></p>
+              <div class="shipping"><div><span>الشحن</span><b dir="auto">{{ format_price(item.get('shipping')) }}</b></div></div>
+              <p class="product-number" dir="auto">رقم المنتج: {{ item.get('itemId') or 'غير متاح' }}</p>
+              {% if is_web_link(item.get('itemUrl')) %}
+              <a class="button green-button full-width" href="{{ item.itemUrl }}" target="_blank" rel="noopener noreferrer">عرض المنتج في eBay</a>
+              {% else %}
+              <span class="button white-button full-width">رابط المنتج غير متاح</span>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+          <p class="results-note">الأسعار بعملة المتجر. راجع توافق القطعة وتفاصيل الشحن والضرائب لدى البائع.</p>
+        </div>
+      </div>
+    </div>
+    <!-- الفوتر: معلومات أسفل الصفحة -->
+    <div class="footer">
+      <div class="container footer-row">
+        <p><b>بصيرة</b> <span>من الصورة إلى القرار.</span></p>
+        <p>تقييم أولي للضرر الظاهر؛ لا يثبت سلامة السيارة.</p>
+        <a href="about.html">عن المشروع</a>
+      </div>
+    </div>
+    <!-- المساعد: details يفتح ويغلق النافذة عند الضغط على summary -->
+    <details class="chat">
+      <summary class="chat-button"> <img class="icon" src="assets/chat.png" alt=""> <span>مساعد بصيرة</span> </summary>
+      <div class="chat-window">
+        <div class="chat-heading">
+          <span class="icon-box"> <img class="icon" src="assets/assistant.png" alt=""> </span>
+          <div>
+            <h2>مساعد بصيرة</h2>
+            <p>نساعدك توصل للقطعة المناسبة</p>
+          </div>
+        </div>
+        <div class="chat-body">
+          <span class="badge">معاينة الواجهة</span>
+          <p class="chat-message">أهلًا بك في بصيرة. اكتب اسم القطعة، ونوع سيارتك وسنة الصنع لبدء البحث.</p>
+          <p class="small-text gray-text">تعرف القطعة اللي تحتاجها؟</p>
+          <a class="chat-link" href="parts.html">انتقل للبحث عن قطع الغيار</a>
+        </div>
+        <label class="message-label" for="chat-message">رسالتك للمساعد</label>
+        <!-- كتابة الرسالة: الإرسال غير مربوط حاليًا -->
+        <div class="chat-input">
+          <textarea id="chat-message" rows="2" placeholder="مثال: أبغى صدام أمامي كامري 2022"></textarea>
+          <button class="send-button" disabled>إرسال</button>
+        </div>
+        <p class="chat-note">المحادثة الآلية غير متصلة في هذه المعاينة؛ الرسائل لا تُرسل.</p>
+      </div>
+    </details>
+    <!-- إظهار رسالة الانتظار عند إرسال نموذج البحث -->
+    <script>
+      document.getElementById("search-form").onsubmit = function() {
+        document.getElementById("search-status").hidden = false;
+      };
+    </script>
+  </body>
+</html>

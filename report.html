@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <!-- إعدادات الصفحة: الحروف العربية، عرض الجوال، العنوان والتنسيق -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>تقرير توضيحي | بصيرة</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <!-- محتوى الصفحة الذي يظهر للمستخدم -->
+  <body>
+    <!-- الهيدر: الشعار وروابط الصفحات -->
+    <div class="header">
+      <div class="container header-row">
+        <a class="logo" href="index.html"> <img src="assets/logo.png" alt=""> <span><b>بصيرة</b> <span lang="en" class="logo-english">BASEERA</span></span> </a>
+        <div class="menu">
+          <a href="index.html" class="active"> <img class="icon" src="assets/inspection-green.png" alt=""> <span>مركز الفحص</span> </a>
+          <a href="parts.html"> <img class="icon" src="assets/parts.png" alt=""> <span>قطع الغيار</span> </a>
+          <a href="about.html"> <img class="icon" src="assets/about.png" alt=""> <span>عن بصيرة</span> </a>
+        </div>
+        <span class="university">مشروع جامعة تبوك</span>
+      </div>
+    </div>
+    <!-- المحتوى الرئيسي -->
+    <div class="container main">
+      <!-- عنوان الصفحة والوصف -->
+      <div class="page-heading">
+        <div>
+          <p class="page-path">مركز الفحص <span>/</span> مثال التقرير</p>
+          <h1>صورة أوضح <span>للخطوة التالية.</span></h1>
+          <p class="page-description">مثال يوضح عرض التقييم والقطع المحددة.</p>
+        </div>
+        <a class="button white-button" href="index.html">فحص جديد</a>
+      </div>
+      <!-- تنبيه: التقرير مثال ثابت -->
+      <div class="report-alert">
+        <img class="icon" src="assets/warning.png" alt="">
+        <p>هذا تقرير ثابت لتوضيح التصميم، وليس نتيجة تحليل الصورة التي اخترتها.</p>
+      </div>
+      <!-- تقرير الفحص -->
+      <div class="box report">
+        <div class="report-heading">
+          <div class="section-heading">
+            <span class="icon-box"> <img class="icon" src="assets/report.png" alt=""> </span>
+            <div>
+              <h2>تقرير الفحص <span class="badge">توضيحي</span></h2>
+              <p dir="ltr">Toyota Camry 2022</p>
+            </div>
+          </div>
+        </div>
+        <div class="report-body">
+          <!-- مستوى الضرر -->
+          <div class="damage-level">
+            <span>شدة الضرر الظاهر</span>
+            <b>متوسط</b>
+            <div class="damage-meter">
+              <span></span>
+              <span></span>
+              <span class="light-bar"></span>
+            </div>
+            <span class="damage-note">قيمة محددة لأغراض العرض</span>
+          </div>
+          <!-- قائمة القطع المتضررة -->
+          <div class="damaged-parts">
+            <h3>القطع المحددة <span class="part-count">٢</span></h3>
+            <div class="damaged-part">
+              <span class="part-number">1</span>
+              <div>
+                <h4>الصدام الأمامي</h4>
+                <p>مثال توضيحي</p>
+              </div>
+              <a href="parts.html">ابحث عن قطع الغيار</a>
+            </div>
+            <div class="damaged-part">
+              <span class="part-number">2</span>
+              <div>
+                <h4>الرفرف الأمامي</h4>
+                <p>مثال توضيحي</p>
+              </div>
+              <span class="small-text gray-text">البحث يتاح بعد الربط</span>
+            </div>
+          </div>
+        </div>
+        <p class="report-note"> <img class="icon" src="assets/info.png" alt=""> التقييم يخص الضرر الظاهر فقط. افحص السيارة لدى مختص لتحديد سلامتها وإمكانية الإصلاح. </p>
+      </div>
+      <!-- الانتقال إلى البحث عن قطع الغيار -->
+      <div class="next-step">
+        <span class="icon-box"> <img class="icon" src="assets/parts-green.png" alt=""> </span>
+        <div>
+          <h2>قبل اختيار قطعة الغيار</h2>
+          <p>تحقق من رقم القطعة، توافقها مع السيارة، وحالتها وتكاليف الشحن.</p>
+        </div>
+        <a class="button white-button" href="parts.html">استعرض قطع الغيار</a>
+      </div>
+      <p class="print-note">لحفظ التقرير بصيغة PDF، استخدم الطباعة من المتصفح واختر «حفظ بصيغة PDF».</p>
+    </div>
+    <!-- الفوتر: معلومات أسفل الصفحة -->
+    <div class="footer">
+      <div class="container footer-row">
+        <p><b>بصيرة</b> <span>من الصورة إلى القرار.</span></p>
+        <p>تقييم أولي للضرر الظاهر؛ لا يثبت سلامة السيارة.</p>
+        <a href="about.html">عن المشروع</a>
+      </div>
+    </div>
+    <!-- المساعد: details يفتح ويغلق النافذة عند الضغط على summary -->
+    <details class="chat">
+      <summary class="chat-button"> <img class="icon" src="assets/chat.png" alt=""> <span>مساعد بصيرة</span> </summary>
+      <div class="chat-window">
+        <div class="chat-heading">
+          <span class="icon-box"> <img class="icon" src="assets/assistant.png" alt=""> </span>
+          <div>
+            <h2>مساعد بصيرة</h2>
+            <p>نساعدك توصل للقطعة المناسبة</p>
+          </div>
+        </div>
+        <div class="chat-body">
+          <span class="badge">معاينة الواجهة</span>
+          <p class="chat-message">أهلًا بك في بصيرة. اكتب اسم القطعة، ونوع سيارتك وسنة الصنع لبدء البحث.</p>
+          <p class="small-text gray-text">تعرف القطعة اللي تحتاجها؟</p>
+          <a class="chat-link" href="parts.html">انتقل للبحث عن قطع الغيار</a>
+        </div>
+        <label class="message-label" for="chat-message">رسالتك للمساعد</label>
+        <!-- كتابة الرسالة: الإرسال غير مربوط حاليًا -->
+        <div class="chat-input">
+          <textarea id="chat-message" rows="2" placeholder="مثال: أبغى صدام أمامي كامري 2022"></textarea>
+          <button class="send-button" disabled>إرسال</button>
+        </div>
+        <p class="chat-note">المحادثة الآلية غير متصلة في هذه المعاينة؛ الرسائل لا تُرسل.</p>
+      </div>
+    </details>
+  </body>
+</html>

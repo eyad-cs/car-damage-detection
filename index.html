@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <!-- إعدادات الصفحة: الحروف العربية، عرض الجوال، العنوان والتنسيق -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>مركز الفحص | بصيرة</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <!-- محتوى الصفحة الذي يظهر للمستخدم -->
+  <body>
+    <!-- الهيدر: الشعار وروابط الصفحات -->
+    <div class="header">
+      <div class="container header-row">
+        <a class="logo" href="index.html"> <img src="assets/logo.png" alt=""> <span><b>بصيرة</b> <span lang="en" class="logo-english">BASEERA</span></span> </a>
+        <div class="menu">
+          <a href="index.html" class="active"> <img class="icon" src="assets/inspection-green.png" alt=""> <span>مركز الفحص</span> </a>
+          <a href="parts.html"> <img class="icon" src="assets/parts.png" alt=""> <span>قطع الغيار</span> </a>
+          <a href="about.html"> <img class="icon" src="assets/about.png" alt=""> <span>عن بصيرة</span> </a>
+        </div>
+        <span class="university">مشروع جامعة تبوك</span>
+      </div>
+    </div>
+    <!-- المحتوى الرئيسي -->
+    <div class="container main">
+      <!-- عنوان الصفحة والوصف -->
+      <div class="page-heading">
+        <div>
+          <p class="page-path">مركز الفحص <span>/</span> تقييم جديد</p>
+          <h1>كل قرار جيد، يبدأ بصورة <span>واضحة.</span></h1>
+          <p class="page-description">ارفع صورة الضرر وبيانات سيارتك، لنحدد القطع المتضررة ونبحث عن خياراتها.</p>
+        </div>
+        <span class="info-badge"> <img class="icon" src="assets/inspection-green.png" alt=""> فحص بصري أولي </span>
+      </div>
+      <!-- خطوات الفحص -->
+      <ol class="steps">
+        <li class="step active">
+          <span class="step-number">01</span>
+          <div>
+            <b>بيانات السيارة</b>
+            <span class="step-text">لنبحث عن القطعة المناسبة</span>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-number">02</span>
+          <div>
+            <b>صور الضرر</b>
+            <span class="step-text">صورة واضحة تصنع الفرق</span>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-number">03</span>
+          <div>
+            <b>تقرير الفحص</b>
+            <span class="step-text">فهم الضرر وخيارات القطع</span>
+          </div>
+        </li>
+      </ol>
+      <div class="inspection-layout">
+        <!-- بيانات السيارة -->
+        <div class="box car-form">
+          <div class="section-heading">
+            <span class="icon-box"> <img class="icon" src="assets/car.png" alt=""> </span>
+            <div>
+              <h2>خلّنا نتعرف على سيارتك</h2>
+              <p>أدخل البيانات للبحث عن القطع.</p>
+            </div>
+          </div>
+          <div class="field">
+            <label for="car-make">الشركة المصنّعة</label>
+            <select id="car-make" name="make">
+              <option value="">اختر الشركة</option>
+              <option value="Toyota">تويوتا · Toyota</option>
+              <option value="Hyundai">هيونداي · Hyundai</option>
+              <option value="Kia">كيا · Kia</option>
+              <option value="Nissan">نيسان · Nissan</option>
+              <option value="Ford">فورد · Ford</option>
+            </select>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="car-model">الطراز</label>
+              <input id="car-model" name="model" placeholder="مثل: Camry">
+            </div>
+            <div class="field">
+              <label for="car-year">سنة الصنع</label>
+              <input id="car-year" name="year" type="number" min="1900" placeholder="2022">
+            </div>
+          </div>
+          <div class="field">
+            <label for="car-vin">رقم الهيكل VIN <span class="gray-text">(اختياري)</span></label>
+            <input id="car-vin" name="vin" dir="ltr" placeholder="تقدر تتركه فارغًا">
+          </div>
+          <p class="note">تأكد أن الطراز وسنة الصنع مطابقان لسيارتك. رقم الهيكل اختياري.</p>
+          <div class="divider"></div>
+          <div class="privacy-note">
+            <img class="icon" src="assets/privacy.png" alt="">
+            <p>اختيار الصورة لا يرفعها إلى أي خادم في هذه النسخة.</p>
+          </div>
+          <p class="small-text gray-text">تجنب ظهور لوحات المركبة أو بياناتك الشخصية في الصور.</p>
+        </div>
+        <!-- اختيار صور الضرر من الجهاز -->
+        <div class="box upload-box">
+          <div class="upload-heading">
+            <div>
+              <p class="page-path">الخطوة التالية</p>
+              <h2>ارفع صورة الضرر</h2>
+            </div>
+            <span class="badge green-badge">صورة كاملة + تفاصيل الضرر</span>
+          </div>
+          <div class="upload-area">
+            <label class="upload-label" for="car-photos">
+              <span class="upload-icon"> <img class="icon" src="assets/upload.png" alt=""> </span>
+              <b>ابدأ بصورة واضحة لسيارتك</b>
+              <span class="upload-help">اضغط لاختيار صورة واحدة أو عدة صور من جهازك</span>
+              <span dir="ltr" class="file-types">JPG · PNG · WebP</span>
+            </label>
+            <input id="car-photos" class="file-input" type="file" accept=".jpg,.jpeg,.png,.webp" multiple>
+          </div>
+          <!-- إرشادات التصوير -->
+          <div class="photo-tips">
+            <span> <img class="icon" src="assets/camera.png" alt=""> زاوية تُظهر السيارة </span>
+            <span> <img class="icon" src="assets/light.png" alt=""> إضاءة واضحة </span>
+            <span> <img class="icon" src="assets/inspection.png" alt=""> صورة قريبة للضرر </span>
+          </div>
+          <!-- زر التحليل ورابط التقرير التوضيحي -->
+          <div class="actions">
+            <button class="button green-button" disabled> <img class="icon" src="assets/analyze.png" alt=""> تحليل الصور </button>
+            <a class="button white-button" href="report.html">استعرض تقريرًا توضيحيًا</a>
+          </div>
+          <p class="note">التحليل غير متاح في معاينة الواجهة. يمكنك اختيار الملفات؛ معاينة الصور ونتائج التحليل تتاح بعد الربط.</p>
+        </div>
+      </div>
+      <!-- فكرة المشروع في ثلاث نقاط -->
+      <div class="features">
+        <div>
+          <img class="icon" src="assets/inspection-green.png" alt="">
+          <div>
+            <h3>نقرأ الضرر الظاهر</h3>
+            <p>تحديد نوع الضرر ومكانه في الصورة.</p>
+          </div>
+        </div>
+        <div>
+          <img class="icon" src="assets/parts-green.png" alt="">
+          <div>
+            <h3>نحدد القطع المتضررة</h3>
+            <p>تقرير واضح يساعدك على الخطوة التالية.</p>
+          </div>
+        </div>
+        <div>
+          <img class="icon" src="assets/search.png" alt="">
+          <div>
+            <h3>نقرّب لك الخيارات</h3>
+            <p>السعر والحالة والشحن في مقارنة واحدة.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- الفوتر: معلومات أسفل الصفحة -->
+    <div class="footer">
+      <div class="container footer-row">
+        <p><b>بصيرة</b> <span>من الصورة إلى القرار.</span></p>
+        <p>تقييم أولي للضرر الظاهر؛ لا يثبت سلامة السيارة.</p>
+        <a href="about.html">عن المشروع</a>
+      </div>
+    </div>
+    <!-- المساعد: details يفتح ويغلق النافذة عند الضغط على summary -->
+    <details class="chat">
+      <summary class="chat-button"> <img class="icon" src="assets/chat.png" alt=""> <span>مساعد بصيرة</span> </summary>
+      <div class="chat-window">
+        <div class="chat-heading">
+          <span class="icon-box"> <img class="icon" src="assets/assistant.png" alt=""> </span>
+          <div>
+            <h2>مساعد بصيرة</h2>
+            <p>نساعدك توصل للقطعة المناسبة</p>
+          </div>
+        </div>
+        <div class="chat-body">
+          <span class="badge">معاينة الواجهة</span>
+          <p class="chat-message">أهلًا بك في بصيرة. اكتب اسم القطعة، ونوع سيارتك وسنة الصنع لبدء البحث.</p>
+          <p class="small-text gray-text">تعرف القطعة اللي تحتاجها؟</p>
+          <a class="chat-link" href="parts.html">انتقل للبحث عن قطع الغيار</a>
+        </div>
+        <label class="message-label" for="chat-message">رسالتك للمساعد</label>
+        <!-- كتابة الرسالة: الإرسال غير مربوط حاليًا -->
+        <div class="chat-input">
+          <textarea id="chat-message" rows="2" placeholder="مثال: أبغى صدام أمامي كامري 2022"></textarea>
+          <button class="send-button" disabled>إرسال</button>
+        </div>
+        <p class="chat-note">المحادثة الآلية غير متصلة في هذه المعاينة؛ الرسائل لا تُرسل.</p>
+      </div>
+    </details>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <!-- إعدادات الصفحة: الحروف العربية، عرض الجوال، العنوان والتنسيق -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>عن المشروع | بصيرة</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <!-- محتوى الصفحة الذي يظهر للمستخدم -->
+  <body>
+    <!-- الهيدر: الشعار وروابط الصفحات -->
+    <div class="header">
+      <div class="container header-row">
+        <a class="logo" href="index.html"> <img src="assets/logo.png" alt=""> <span><b>بصيرة</b> <span lang="en" class="logo-english">BASEERA</span></span> </a>
+        <div class="menu">
+          <a href="index.html"> <img class="icon" src="assets/inspection.png" alt=""> <span>مركز الفحص</span> </a>
+          <a href="parts.html"> <img class="icon" src="assets/parts.png" alt=""> <span>قطع الغيار</span> </a>
+          <a href="about.html" class="active"> <img class="icon" src="assets/about-green.png" alt=""> <span>عن بصيرة</span> </a>
+        </div>
+        <span class="university">مشروع جامعة تبوك</span>
+      </div>
+    </div>
+    <!-- المحتوى الرئيسي -->
+    <div class="container main">
+      <!-- عنوان الصفحة والوصف -->
+      <div class="page-heading">
+        <div>
+          <p class="page-path">عن المشروع</p>
+          <h1>بصيرة. من الصورة <span>إلى القرار.</span></h1>
+          <p class="page-description">مشروع جامعي لتقييم أضرار السيارات والبحث عن قطع الغيار.</p>
+        </div>
+        <span class="info-badge">جامعة تبوك</span>
+      </div>
+      <!-- فكرة المشروع -->
+      <div class="box about-box">
+        <span class="icon-box"> <img class="icon" src="assets/inspection-green.png" alt=""> </span>
+        <h2>الفكرة</h2>
+        <p>يهدف بصيرة إلى مساعدة المستخدم على فهم الضرر الظاهر في صور السيارة، وتحديد القطع المتضررة، ثم البحث عن قطع الغيار ومقارنة المعلومات المتاحة قبل اتخاذ القرار.</p>
+        <p>تجمع الواجهة مسار الفحص والبحث في تجربة عربية واحدة، ويتيح المساعد الوصول إلى البحث بالمحادثة عند ربطه بالخدمة.</p>
+      </div>
+      <!-- أسئلة شائعة: اضغط السؤال لفتح الإجابة -->
+      <div class="box about-box">
+        <h2>أسئلة عن هذه النسخة</h2>
+        <details class="question" open>
+          <summary class="question-title"><span class="arrow-closed">▸</span><span class="arrow-open">▾</span>هل تحليل الصور والبحث يعملان الآن؟</summary>
+          <p>صفحة قطع الغيار مهيأة لإرسال بيانات البحث وعرض رد الخدمة بعد ربطها. نتائج تقرير الضرر أمثلة توضيحية؛ تحليل الصور وردود المساعد يحتاجان إلى ربط مستقل.</p>
+        </details>
+        <details class="question">
+          <summary class="question-title"><span class="arrow-closed">▸</span><span class="arrow-open">▾</span>هل تُحفظ الصور أو تُرسل؟</summary>
+          <p>لا. اختيار الصورة يظل داخل المتصفح، وزر تحليل الصور غير مفعّل. عند ربط النظام بخادم، يجب توضيح سياسة حفظ الصور للمستخدم.</p>
+        </details>
+        <details class="question">
+          <summary class="question-title"><span class="arrow-closed">▸</span><span class="arrow-open">▾</span>هل التقرير يحدد سلامة السيارة؟</summary>
+          <p>التصميم مخصص لتقييم أولي للضرر الظاهر. تحديد السلامة والأضرار الداخلية يحتاج إلى فحص لدى مختص.</p>
+        </details>
+        <details class="question">
+          <summary class="question-title"><span class="arrow-closed">▸</span><span class="arrow-open">▾</span>كيف أتأكد من توافق القطعة؟</summary>
+          <p>راجع رقم القطعة وبيانات الشركة والطراز وسنة الصنع لدى البائع قبل الشراء. تشابه الاسم وحده لا يضمن التوافق.</p>
+        </details>
+      </div>
+    </div>
+    <!-- الفوتر: معلومات أسفل الصفحة -->
+    <div class="footer">
+      <div class="container footer-row">
+        <p><b>بصيرة</b> <span>من الصورة إلى القرار.</span></p>
+        <p>تقييم أولي للضرر الظاهر؛ لا يثبت سلامة السيارة.</p>
+        <a href="about.html">عن المشروع</a>
+      </div>
+    </div>
+    <!-- المساعد: details يفتح ويغلق النافذة عند الضغط على summary -->
+    <details class="chat">
+      <summary class="chat-button"> <img class="icon" src="assets/chat.png" alt=""> <span>مساعد بصيرة</span> </summary>
+      <div class="chat-window">
+        <div class="chat-heading">
+          <span class="icon-box"> <img class="icon" src="assets/assistant.png" alt=""> </span>
+          <div>
+            <h2>مساعد بصيرة</h2>
+            <p>نساعدك توصل للقطعة المناسبة</p>
+          </div>
+        </div>
+        <div class="chat-body">
+          <span class="badge">معاينة الواجهة</span>
+          <p class="chat-message">أهلًا بك في بصيرة. اكتب اسم القطعة، ونوع سيارتك وسنة الصنع لبدء البحث.</p>
+          <p class="small-text gray-text">تعرف القطعة اللي تحتاجها؟</p>
+          <a class="chat-link" href="parts.html">انتقل للبحث عن قطع الغيار</a>
+        </div>
+        <label class="message-label" for="chat-message">رسالتك للمساعد</label>
+        <!-- كتابة الرسالة: الإرسال غير مربوط حاليًا -->
+        <div class="chat-input">
+          <textarea id="chat-message" rows="2" placeholder="مثال: أبغى صدام أمامي كامري 2022"></textarea>
+          <button class="send-button" disabled>إرسال</button>
+        </div>
+        <p class="chat-note">المحادثة الآلية غير متصلة في هذه المعاينة؛ الرسائل لا تُرسل.</p>
+      </div>
+    </details>
+  </body>
+</html>
