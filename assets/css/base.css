@@ -1,0 +1,196 @@
+/* الخطوط المحلية: العادي والعريض */
+@font-face {
+  font-family: "Baseera";
+  src: url("../fonts/arabic-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Baseera";
+  src: url("../fonts/arabic-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+/* تنسيق عام مشترك بين الصفحات */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: #182c2b;
+  background: #f5f7f8;
+  font-family: "Baseera", Tahoma, Arial, sans-serif;
+  line-height: 1.8;
+}
+button, input, select, textarea { font: inherit; }
+a {
+  color: #126859;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+button, .question-title, .chat-button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+h1, h2, h3, p { margin: 0; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
+img { max-width: 100%; }
+.icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+.container {
+  width: 92%;
+  margin: auto;
+  max-width: 1280px;
+}
+.main {
+  min-height: 80vh;
+  padding: 32px 0 48px;
+}
+.gray-text { color: #627571; }
+.small-text { font-size: 14px; }
+.full-width { width: 100%; }
+a:focus, button:focus, input:focus, select:focus, textarea:focus, summary:focus {
+  outline: 3px solid #409984;
+  outline-offset: 4px;
+}
+/* عنوان الصفحة والشارات */
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+h1 {
+  font-size: 32px;
+  line-height: 1.7;
+}
+h1 span { color: #126859; }
+.page-description {
+  margin-top: 5px;
+  color: #627571;
+}
+.info-badge {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 12px;
+  border: 1px solid #d5e4dc;
+  border-radius: 7px;
+  background: #eef5f1;
+  color: #126859;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 400;
+  background: #fcf2d9;
+  color: #7d5d20;
+  padding: 3px 9px;
+  border-radius: 5px;
+}
+.badge.green-badge {
+  color: #126859;
+  background: #eef5f1;
+}
+/* الصناديق والحقول والأزرار المشتركة */
+.box {
+  background: #ffffff;
+  border: 1px solid #dfe7e4;
+  border-radius: 14px;
+}
+.icon-box {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  flex-shrink: 0;
+  color: #126859;
+  border-radius: 12px;
+  background: #eef5f1;
+  align-items: center;
+  justify-content: center;
+}
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 24px;
+}
+.section-heading h2 { font-size: 18px; }
+.section-heading p {
+  color: #627571;
+  font-size: 13px;
+  margin-top: 3px;
+}
+.field {
+  min-width: 0;
+  margin-bottom: 18px;
+}
+.field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 7px;
+  color: #445e56;
+}
+.field input, .field select {
+  width: 100%;
+  min-height: 47px;
+  padding: 8px 12px;
+  border: 1px solid #dfe7e4;
+  border-radius: 7px;
+  color: #182c2b;
+  background: white;
+  font-size: 15px;
+}
+/* flex يضع الحقول بجانب بعض، و gap يحدد المسافة بينها. */
+.field-row {
+  display: flex;
+  gap: 12px;
+}
+.field-row .field { flex: 1; }
+.note {
+  color: #627571;
+  font-size: 13px;
+  line-height: 1.9;
+  margin-top: 12px;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 10px 19px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+.button:hover { text-decoration: none; }
+.button.green-button {
+  background: #126859;
+  color: white;
+}
+.button:disabled {
+  background: #688d83;
+  color: white;
+}
+.result-message { margin-bottom: 14px; color: #126859; }
+/* HTMX يظهر رسالة الانتظار أثناء الطلب. */
+.loading {
+  display: none;
+  margin: 12px 0 0;
+  padding: 12px;
+  color: #126859;
+  background: #eef5f1;
+  border: 1px solid #cbded4;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+.loading.htmx-request { display: block; }

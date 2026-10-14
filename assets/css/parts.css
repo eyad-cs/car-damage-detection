@@ -1,0 +1,57 @@
+/* صفحة قطع الغيار: النموذج والنتائج */
+.parts-layout { display: flex; gap: 25px; align-items: flex-start; }
+.search-form { padding: 24px; width: 305px; flex-shrink: 0; }
+.results { min-width: 0; flex: 1; }
+.results-heading { margin-bottom: 17px; }
+/* فلتر المتاجر: اختيار واحد، دون طلب جديد أو JavaScript. */
+.store-results { border: 0; padding: 0; margin: 0; min-width: 0; }
+.store-results legend { padding: 0; margin-bottom: 8px; color: #627571; font-size: 13px; }
+.store-choice { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.store-tab {
+  display: inline-block;
+  margin: 0 0 18px 6px;
+  padding: 7px 18px;
+  border: 1px solid #cbded4;
+  border-radius: 8px;
+  background: white;
+  color: #126859;
+  cursor: pointer;
+  font-size: 14px;
+}
+.store-choice:checked + .store-tab { background: #126859; color: white; border-color: #126859; }
+.store-choice:focus-visible + .store-tab { outline: 3px solid #409984; outline-offset: 3px; }
+.store-choice:disabled + .store-tab { opacity: 0.45; cursor: not-allowed; }
+#store-ebay:checked ~ .products .product:not([data-store="eBay"]),
+#store-aliexpress:checked ~ .products .product:not([data-store="AliExpress"]) { display: none; }
+/* بطاقات المنتجات وترشيح الخدمة */
+.products { display: flex; gap: 17px; flex-wrap: wrap; }
+.product {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 9px);
+  padding: 20px;
+  border: 2px solid #dfe7e4;
+  border-radius: 12px;
+  background: white;
+  overflow-wrap: anywhere;
+}
+.product.best-pick { border-color: #126859; background: #f0f8f3; }
+.best-badge { margin-bottom: 14px; padding: 7px 10px; border-radius: 6px; background: #126859; color: white; font-size: 12px; }
+.product-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.store-name { padding: 3px 8px; border-radius: 5px; background: #eef3fa; color: #235c9f; font: bold 18px Arial, sans-serif; direction: ltr; }
+.store-name.aliexpress { background: #fff0e9; color: #af3408; }
+.condition { color: #526e59; font-size: 12px; }
+.product-name { margin: 16px 0 10px; font-size: 14px; }
+.part-type { align-self: flex-start; margin-bottom: 12px; padding: 3px 9px; border-radius: 5px; background: #e7efea; color: #365d4b; font-size: 12px; }
+.price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; }
+.price b { font-size: 25px; color: #126859; }
+.price > span { font-size: 12px; color: #627571; }
+.shipping { display: flex; justify-content: space-between; gap: 12px; margin-top: 14px; font-size: 13px; }
+.shipping span { color: #627571; }
+.shipping b { text-align: left; font-weight: normal; }
+.results-note { color: #627571; font-size: 13px; margin-top: 18px; }
+.empty-results { padding: 65px 28px; text-align: center; color: #627571; }
+.product-photo { height: 170px; margin-top: 16px; border-radius: 9px; background: white; display: flex; align-items: center; justify-content: center; color: #627571; font-size: 13px; overflow: hidden; }
+.product-image { width: 100%; height: 100%; object-fit: contain; }
+.product-number { color: #627571; font-size: 12px; margin: 16px 0 12px; }
+.product > .button { margin-top: auto; }

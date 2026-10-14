@@ -1,0 +1,53 @@
+<!-- نعرض المنتجات بنفس ترتيب الخدمة؛ الفلتر يغيّر العرض فقط. -->
+{% if result.get('success') and result.get('items') %}
+<p class="result-message">لقينا {{ result['items']|length }} نتيجة لطلبك.</p>
+<fieldset class="store-results">
+  <legend>المتجر</legend>
+  <!-- أزرار اختيار عادية؛ CSS يخفي بطاقات المتجر الآخر. -->
+  <input class="store-choice" type="radio" name="store" id="store-all" checked>
+  <label class="store-tab" for="store-all">الكل</label>
+  <input class="store-choice" type="radio" name="store" id="store-ebay" {% if 'eBay' not in stores %}disabled{% endif %}>
+  <label class="store-tab" for="store-ebay" lang="en">eBay</label>
+  <input class="store-choice" type="radio" name="store" id="store-aliexpress" {% if 'AliExpress' not in stores %}disabled{% endif %}>
+  <label class="store-tab" for="store-aliexpress" lang="en">AliExpress</label>
+  <div class="products">
+    {% for item in result['items'] %}
+    <article class="product {% if item.get('isBestPick') %}best-pick{% endif %}" data-store="{{ item.get('source', '') }}">
+      {% if item.get('isBestPick') %}
+      <p class="best-badge">{{ item.get('badge') or 'أفضل خيار' }}</p>
+      {% endif %}
+      <div class="product-heading">
+        <span class="store-name {% if item.get('source') == 'AliExpress' %}aliexpress{% endif %}" lang="en">{{ item.get('source') or 'المتجر' }}</span>
+        <span class="condition" dir="auto">{{ item.get('condition') or 'غير محددة' }}</span>
+      </div>
+      {% set image = web_link(item.get('imageUrl')) %}
+      <div class="product-photo">
+        {% if image %}<img class="product-image" src="{{ image }}" alt="{{ item.get('title') or 'قطعة غيار' }}" loading="lazy">
+        {% else %}<span>الصورة غير متوفرة</span>{% endif %}
+      </div>
+      <h3 class="product-name" dir="auto">{{ item.get('title') or 'قطعة غيار' }}</h3>
+      <p class="part-type">
+        {% if item.get('partType') == 'OEM' %}أصلي وكالة
+        {% elif item.get('partType') == 'AFTERMARKET' %}تجاري بديل للوكالة
+        {% elif item.get('partType') == 'UPGRADE_MODIFIED' %}تعديل رياضي/معدل
+        {% else %}نوع القطعة غير محدد{% endif %}
+      </p>
+      <p class="price"><b dir="auto">{% if item.get('price') %}{{ item.price.value }} {{ item.price.currency }}{% else %}السعر غير متاح{% endif %}</b><span>سعر القطعة</span></p>
+      <p class="shipping"><span>الشحن</span><b dir="auto">
+        {% if item.get('shipping') and item.shipping.get('value') not in [none, ''] %}
+          {% if item.shipping.value in [0, '0', '0.0', '0.00'] %}شحن مجاني
+          {% else %}{{ item.shipping.value }} {{ item.shipping.currency }}{% endif %}
+        {% else %}يُحدد في صفحة المنتج{% endif %}
+      </b></p>
+      <p class="product-number" dir="auto">رقم المنتج: {{ item.get('itemId') or 'غير متاح' }}</p>
+      {% set link = web_link(item.get('itemUrl')) %}
+      {% if link %}<a class="button green-button full-width" href="{{ link }}" target="_blank" rel="noopener noreferrer">عرض المنتج في {{ item.get('source') or 'المتجر' }}</a>
+      {% else %}<span class="small-text gray-text">رابط المنتج غير متاح</span>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</fieldset>
+<p class="results-note">راجع توافق القطعة وتفاصيل الشحن لدى البائع قبل الشراء.</p>
+{% else %}
+<p class="result-message" role="status">{{ result.get('message') or 'ما لقينا نتائج مناسبة. جرّب وصفًا آخر للقطعة.' }}</p>
+{% endif %}

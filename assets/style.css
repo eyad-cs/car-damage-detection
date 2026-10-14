@@ -1,0 +1,8 @@
+/* تنسيقات الموقع مقسمة حسب الجزء؛ كل ملف مسؤول عن قسم واضح. */
+@import url("css/base.css");
+@import url("css/layout.css");
+@import url("css/inspection.css");
+@import url("css/parts.css");
+@import url("css/about.css");
+@import url("css/chat.css");
+@import url("css/mobile.css");

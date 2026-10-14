@@ -1,0 +1,18 @@
+<!-- واجهة المساعد فقط؛ مسؤول الشات سيضيف الربط لاحقًا. -->
+<div class="chat-window" id="chat-window">
+  <div class="chat-heading">
+    <span class="chat-symbol"><img src="assets/robot.svg" alt=""></span>
+    <div><h2>مساعد بصيرة <span class="ai-label" lang="en">AI</span></h2><p>نساعدك تلقى القطعة المناسبة</p></div>
+  </div>
+  <div class="chat-body" id="chat-messages" role="log" aria-live="polite" aria-label="رسائل المحادثة">
+    <p class="chat-message chat-assistant">المساعد غير متاح حاليًا. تقدر تبحث من صفحة قطع الغيار.</p>
+  </div>
+  <div id="chat-form">
+    <label class="message-label" for="chat-message">رسالتك للمساعد</label>
+    <div class="chat-input">
+      <textarea id="chat-message" name="message" rows="2" disabled placeholder="المساعد غير متاح حاليًا"></textarea>
+      <button class="send-button" type="button" disabled>إرسال</button>
+    </div>
+  </div>
+  <p class="chat-note"><a href="parts.html">البحث عن قطع الغيار</a></p>
+</div>

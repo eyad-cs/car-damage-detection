@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <!-- إعدادات الصفحة -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>مركز الفحص | بصيرة</title>
+    <link rel="stylesheet" href="assets/style.css">
+  </head>
+  <body>
+    <!-- الشعار وروابط الصفحات -->
+    <div class="header">
+      <div class="container header-row">
+        <a class="logo" href="index.html"><img src="assets/logo.png" alt=""><span><b>بصيرة</b><span lang="en" class="logo-english">BASEERA</span></span></a>
+        <div class="menu">
+          <a href="index.html" class="active"><img class="icon" src="assets/inspection-green.png" alt=""><span>مركز الفحص</span></a>
+          <a href="parts.html"><img class="icon" src="assets/parts.png" alt=""><span>قطع الغيار</span></a>
+          <a href="about.html"><img class="icon" src="assets/about.png" alt=""><span>عن بصيرة</span></a>
+        </div>
+        <span class="university">مشروع جامعة تبوك</span>
+      </div>
+    </div>
+    <main class="container main">
+      <div class="page-heading">
+        <div>
+          <h1>افحص ضرر <span>سيارتك.</span></h1>
+          <p class="page-description">بيانات السيارة والصورة، والنتيجة في نفس الصفحة.</p>
+        </div>
+      </div>
+      <div class="inspection-layout">
+        <!-- بيانات السيارة -->
+        <div class="box car-form">
+          <div class="section-heading">
+            <span class="icon-box"><img class="icon" src="assets/car.png" alt=""></span>
+            <h2>بيانات السيارة</h2>
+          </div>
+          <div class="field">
+            <label for="car-make">الشركة المصنّعة</label>
+            <select id="car-make" name="make" hx-get="/models" hx-target="#car-model"
+                    hx-disabled-elt="#car-make, #car-model">
+              <option value="">اختر الشركة</option>
+              <option value="Toyota">تويوتا · Toyota</option>
+              <option value="Hyundai">هيونداي · Hyundai</option>
+              <option value="Kia">كيا · Kia</option>
+              <option value="Nissan">نيسان · Nissan</option>
+              <option value="Ford">فورد · Ford</option>
+              <option value="GMC">جمس · GMC</option>
+            </select>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="car-model">الطراز</label>
+              <select id="car-model" name="model">
+                <option value="">اختر الشركة أولًا</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="car-year">سنة الصنع</label>
+              <input id="car-year" name="year" type="number" min="1970" placeholder="2022">
+            </div>
+          </div>
+          <div class="field">
+            <label for="car-vin">رقم الهيكل VIN <span class="gray-text">(اختياري)</span></label>
+            <input id="car-vin" name="vin" dir="ltr" placeholder="تقدر تتركه فارغًا">
+          </div>
+        </div>
+        <div class="inspection-content">
+          <!-- اختيار الصور وزر التحليل -->
+          <div class="box upload-box">
+            <div class="section-heading">
+              <h2>صورة الضرر</h2>
+            </div>
+            <div class="upload-area">
+              <label class="upload-label" for="car-photos">
+                <span class="upload-icon"><img class="icon" src="assets/upload.png" alt=""></span>
+                <b>اختر صور السيارة</b>
+                <span class="file-types" dir="ltr">JPG · PNG · WebP</span>
+              </label>
+              <input id="car-photos" name="photos" class="file-input" type="file" accept=".jpg,.jpeg,.png,.webp" multiple>
+            </div>
+            <p class="note">صورة واضحة للضرر، دون بيانات شخصية.</p>
+            <div class="actions">
+              <button class="button green-button" type="button" disabled aria-describedby="analysis-status"><img class="icon" src="assets/analyze.png" alt="">تحليل الصورة</button>
+            </div>
+            <p id="analysis-status" class="note">التحليل ينتظر ربط النموذج؛ الصور لا تُرسل حاليًا.</p>
+          </div>
+          <!-- نتيجة الضرر داخل الصفحة نفسها -->
+          {% include 'report.html' %}
+        </div>
+      </div>
+    </main>
+    <div class="footer">
+      <div class="container footer-row">
+        <p><b>بصيرة</b><span>من الصورة إلى القرار.</span></p>
+        <p>تقييم أولي، لا يغني عن فحص المختص.</p>
+        <a href="about.html">عن المشروع</a>
+      </div>
+    </div>
+    <!-- زر واضح يفتح ويغلق المساعد -->
+    <details class="chat" id="chat">
+      <summary class="chat-button" aria-label="فتح أو إغلاق مساعد بصيرة">
+        <span class="chat-symbol"><img src="assets/robot.svg" alt=""></span>
+        <span class="chat-open-label">مساعد بصيرة</span><span class="chat-close-label">إغلاق المحادثة</span>
+      </summary>
+      {% include 'chat.html' %}
+    </details>
+    <script src="assets/vendor/htmx.min.js"></script>
+  </body>
+</html>

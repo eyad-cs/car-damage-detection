@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <!-- إعدادات الصفحة: الحروف العربية، عرض الجوال، العنوان والتنسيق -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>قطع الغيار | بصيرة</title>
+    <link rel="stylesheet" href="assets/style.css">
+  </head>
+  <!-- محتوى الصفحة الذي يظهر للمستخدم -->
+  <body>
+    <!-- الهيدر: الشعار وروابط الصفحات -->
+    <div class="header">
+      <div class="container header-row">
+        <a class="logo" href="index.html"> <img src="assets/logo.png" alt=""> <span><b>بصيرة</b> <span lang="en" class="logo-english">BASEERA</span></span> </a>
+        <div class="menu">
+          <a href="index.html"> <img class="icon" src="assets/inspection.png" alt=""> <span>مركز الفحص</span> </a>
+          <a href="parts.html" class="active"> <img class="icon" src="assets/parts-green.png" alt=""> <span>قطع الغيار</span> </a>
+          <a href="about.html"> <img class="icon" src="assets/about.png" alt=""> <span>عن بصيرة</span> </a>
+        </div>
+        <span class="university">مشروع جامعة تبوك</span>
+      </div>
+    </div>
+    <!-- المحتوى الرئيسي -->
+    <div class="container main">
+      <!-- عنوان الصفحة والوصف -->
+      <div class="page-heading">
+        <div>
+          <h1>ابحث عن <span>قطعتك.</span></h1>
+          <p class="page-description">أدخل بيانات السيارة والقطعة.</p>
+        </div>
+        <span class="badge green-badge">eBay وAliExpress</span>
+      </div>
+      <div class="parts-layout">
+        <!-- نموذج البحث: name هو اسم المعلومة المرسلة إلى Python -->
+        <form class="box search-form" id="search-form" method="post" action="/search/products"
+              hx-post="/search/products" hx-target="#search-results"
+              hx-indicator="#parts-loading" hx-disabled-elt="find button">
+          <div class="section-heading">
+            <span class="icon-box"> <img class="icon" src="assets/search.png" alt=""> </span>
+            <h2>عن أي قطعة تبحث؟</h2>
+          </div>
+          <div class="field">
+            <label for="car-make">الشركة المصنّعة</label>
+            <select id="car-make" name="make" required hx-get="/models" hx-target="#car-model"
+                    hx-disabled-elt="#car-make, #car-model, #search-form button">
+              <option value="">اختر الشركة</option>
+              <option value="Toyota">تويوتا · Toyota</option>
+              <option value="Hyundai">هيونداي · Hyundai</option>
+              <option value="Kia">كيا · Kia</option>
+              <option value="Nissan">نيسان · Nissan</option>
+              <option value="Ford">فورد · Ford</option>
+              <option value="GMC">جمس · GMC</option>
+
+            </select>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="car-model">الطراز</label>
+              <select id="car-model" name="model" required>
+                <option value="">اختر الشركة أولًا</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="car-year">سنة الصنع</label>
+              <input id="car-year" name="year" type="number" min="1970" placeholder="2013" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="car-vin">رقم الهيكل VIN <span class="gray-text">(اختياري)</span></label>
+            <input id="car-vin" name="vin" dir="ltr" placeholder="تقدر تتركه فارغًا">
+          </div>
+          <div class="field">
+            <label for="part-name">اسم القطعة</label>
+            <input id="part-name" name="partName" placeholder="مثل: شمعة أمامية يمين" required>
+          </div>
+          <div class="field">
+            <label for="part-type">نوع القطعة</label>
+            <select id="part-type" name="partType">
+              <option value="any">الكل</option>
+              <option value="original">أصلي</option>
+              <option value="aftermarket">تجاري</option>
+            </select>
+          </div>
+          <button class="button green-button full-width" type="submit">ابحث وقارن</button>
+          <p class="loading" id="parts-loading" role="status">جاري البحث عن القطع…</p>
+        </form>
+        <!-- نتائج البحث القادمة من خدمة n8n -->
+        <div class="results">
+          <div class="results-heading">
+            <div>
+              <h2>نتائج البحث</h2>
+            </div>
+          </div>
+          <div id="search-results" aria-live="polite">
+            <div class="box empty-results">ستظهر النتائج هنا بعد البحث.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- الفوتر: معلومات أسفل الصفحة -->
+    <div class="footer">
+      <div class="container footer-row">
+        <p><b>بصيرة</b> <span>من الصورة إلى القرار.</span></p>
+        <p>تقييم أولي، لا يغني عن فحص المختص.</p>
+        <a href="about.html">عن المشروع</a>
+      </div>
+    </div>
+    <!-- المساعد: details يفتح ويغلق النافذة عند الضغط على summary -->
+    <details class="chat" id="chat">
+      <summary class="chat-button" aria-label="فتح أو إغلاق مساعد بصيرة">
+        <span class="chat-symbol"><img src="assets/robot.svg" alt=""></span>
+        <span class="chat-open-label">مساعد بصيرة</span><span class="chat-close-label">إغلاق المحادثة</span>
+      </summary>
+      {% include 'chat.html' %}
+    </details>
+    <!-- HTMX يحدّث الطرازات ويرسل البحث ويظهر الانتظار. -->
+    <script src="assets/vendor/htmx.min.js"></script>
+  </body>
+</html>
