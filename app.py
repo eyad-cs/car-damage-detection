@@ -5,7 +5,7 @@ from cars import cars
 app = Flask(__name__, template_folder=".", static_folder="assets")
 API_URL = "https://baseerah.duckdns.org/webhook/parts-search"
 API_KEY = "X9p#vL2$mPq7!kR4"
-
+CHAT_API_URL = "https://parts-api-fragrant-glitter-6532.fly.dev/extract"
 # قبول رابط عادي أو رابط منسوخ بصيغة Markdown.
 def web_link(link):
     link = str(link or "").strip()
