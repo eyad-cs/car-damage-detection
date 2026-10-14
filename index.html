@@ -24,7 +24,7 @@
       <div class="page-heading">
         <div>
           <h1>افحص ضرر <span>سيارتك.</span></h1>
-          <p class="page-description">بيانات السيارة والصورة، والنتيجة في نفس الصفحة.</p>
+          <p class="page-description">بيانات السيارة والصورة.</p>
         </div>
       </div>
       <div class="inspection-layout">
@@ -51,7 +51,7 @@
             <div class="field">
               <label for="car-model">الطراز</label>
               <select id="car-model" name="model">
-                <option value="">اختر الشركة أولًا</option>
+                <option value="">اختر الشركة</option>
               </select>
             </div>
             <div class="field">
@@ -78,12 +78,9 @@
               </label>
               <input id="car-photos" name="photos" class="file-input" type="file" accept=".jpg,.jpeg,.png,.webp" multiple>
             </div>
-            <p class="note">صورة واضحة للضرر، دون بيانات شخصية.</p>
+            <p class="note">صورة واضحة للضرر.</p>
             <div class="actions">
               <button class="button green-button" type="button" disabled aria-describedby="analysis-status"><img class="icon" src="assets/analyze.png" alt="">تحليل الصورة</button>
-            </div>
-            <p id="analysis-status" class="note">التحليل ينتظر ربط النموذج؛ الصور لا تُرسل حاليًا.</p>
-          </div>
           <!-- نتيجة الضرر داخل الصفحة نفسها -->
           {% include 'report.html' %}
         </div>
