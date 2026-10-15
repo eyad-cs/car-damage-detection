@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <!-- مساعد صيانة: وجه آلي وذراع تمسك مفكًا. -->
+  <path d="M27 9V5h10v4" fill="none" stroke="#c8ecdf" stroke-width="3"/>
+  <path d="M14 15l5-5h26l5 5v20l-6 6H20l-6-6z" fill="#f3faf7"/>
+  <rect x="20" y="19" width="24" height="13" rx="3" fill="#0d5145"/>
+  <path d="M25 25h4m6 0h4" stroke="#dbff77" stroke-width="3" stroke-linecap="square"/>
+  <path d="M27 36h10M9 22v9m46-9v9" stroke="#c8ecdf" stroke-width="3"/>
+  <path d="M18 45h28l6 7v14H12V52z" fill="#e3f2eb"/>
+  <path d="M24 51h16v11H24z" fill="#126859"/>
+  <path d="M28 55h8m-8 4h8" stroke="#dbff77" stroke-width="2"/>
+  <path d="M48 50l9 7 7-11" fill="none" stroke="#e3f2eb" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M64 37V20l-2-5h4l-2 5" fill="#d8e5e0" stroke="#d8e5e0" stroke-width="2"/>
+  <rect x="60" y="34" width="8" height="17" rx="2" fill="#dbff77"/>
+  <path d="M60 44h7" stroke="#e3f2eb" stroke-width="4"/>
+</svg>
