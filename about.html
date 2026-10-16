@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- ترميز العربية، عرض الجوال، عنوان الصفحة والتنسيق -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>عن المشروع | بصيرة</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <!-- الهيدر: الشعار وروابط الصفحات -->
+  <div class="header">
+    <div class="container header-row">
+      <a class="logo" href="index.html">
+        <img src="assets/images/logo.png" alt="">
+        <span><b>بصيرة</b><span lang="en" class="logo-english">BASEERA</span></span>
+      </a>
+      <div class="menu">
+        <a href="index.html" >
+          <img class="icon" src="assets/images/inspection.png" alt="">
+          <span>مركز الفحص</span>
+        </a>
+        <a href="parts.html" >
+          <img class="icon" src="assets/images/parts.png" alt="">
+          <span>قطع الغيار</span>
+        </a>
+        <a href="about.html" class="active">
+          <img class="icon" src="assets/images/about-green.png" alt="">
+          <span>عن بصيرة</span>
+        </a>
+      </div>
+      <span class="university">مشروع جامعة تبوك</span>
+    </div>
+  </div>
+
+  <div class="container main">
+    <!-- عنوان الصفحة والوصف -->
+    <div class="page-heading">
+      <div>
+        <h1>عن <span>بصيرة.</span></h1>
+        <p class="page-description">مشروع جامعي لأضرار السيارات وقطع الغيار.</p>
+      </div>
+      <span class="info-badge">جامعة تبوك</span>
+    </div>
+    <!-- فكرة المشروع -->
+    <div class="box about-box">
+      <span class="icon-box"> <img class="icon" src="assets/images/inspection-green.png" alt=""> </span>
+      <h2>الفكرة</h2>
+      <p>تحديد الضرر الظاهر من الصورة، ثم البحث عن القطع المناسبة للسيارة.</p>
+    </div>
+    <!-- أسئلة شائعة: اضغط السؤال لفتح الإجابة -->
+    <div class="box about-box">
+      <h2>أسئلة شائعة</h2>
+      <details class="question">
+        <summary class="question-title">كيف تحليل الصور والبحث يعملان؟</summary>
+        <p></p>
+      </details>
+      <details class="question">
+        <summary class="question-title">هل تُحفظ الصور أو تُرسل؟</summary>
+        <p>لا.</p>
+      </details>
+      <details class="question">
+        <summary class="question-title">هل التقييم يحدد سلامة السيارة؟</summary>
+        <p>لا, تحديد سلامة السيارة يحتاج فحصًا لدى مختص.</p>
+      </details>
+      <details class="question">
+        <summary class="question-title">كيف أتأكد من توافق القطعة؟</summary>
+        <p>راجع رقم القطعة والطراز والسنة مع البائع قبل الشراء.</p>
+      </details>
+    </div>
+  </div>
+
+  <!-- الفوتر والمساعد -->
+  <div class="footer">
+    <div class="container footer-row">
+      <p><b>بصيرة</b> <span>من الصورة إلى القرار.</span></p>
+      <p>تقييم أولي، لا يغني عن فحص المختص.</p>
+      <a href="about.html">عن المشروع</a>
+    </div>
+  </div>
+
+  <!-- details وsummary يفتحان المساعد ويغلقانه دون كود إضافي -->
+  <details class="chat">
+    <summary class="chat-button" aria-label="فتح أو إغلاق مساعد بصيرة">
+      <span class="chat-symbol"><img src="assets/images/robot.svg" alt=""></span>
+      <span class="chat-open-label">مساعد بصيرة</span>
+      <span class="chat-close-label">إغلاق المحادثة</span>
+    </summary>
+    <!-- الخدمة الخارجية تفهم الرسالة؛ الموقع يعرض الرد فقط. -->
+    <div class="chat-window">
+      <div class="chat-heading">
+        <span class="chat-symbol"><img src="assets/images/robot.svg" alt=""></span>
+        <div>
+          <h2>مساعد بصيرة <span class="ai-label" lang="en">AI</span></h2>
+          <p>نساعدك تلقى القطعة المناسبة</p>
+        </div>
+      </div>
+      <div class="chat-body" id="chat-messages" role="log" aria-live="polite" aria-label="رسائل المحادثة">
+        <p class="chat-message chat-assistant">اكتب طلبك مع الشركة والطراز والسنة، مثل: أبغى صدام أمامي تويوتا كامري 2013.</p>
+      </div>
+      <p id="chat-loading" class="loading" role="status">جاري البحث، انتظر رد المساعد…</p>
+      <form id="chat-form" hx-post="/search/chat" hx-target="#chat-messages"
+            hx-swap="beforeend scroll:#chat-messages:bottom" hx-indicator="#chat-loading"
+            hx-disabled-elt="find button, find textarea">
+        <label class="message-label" for="chat-message">رسالتك للمساعد</label>
+        <div class="chat-input">
+          <textarea id="chat-message" name="message" rows="2" required placeholder="اكتب طلبك هنا…"></textarea>
+          <button class="send-button" type="submit">إرسال</button>
+        </div>
+      </form>
+      <p class="chat-note"><a href="parts.html">البحث عن قطع الغيار</a></p>
+    </div>
+  </details>
+
+  <!-- مكتبة الطلبات، ثم الكود الصغير الذي يعرض رسالة المستخدم -->
+  <script src="assets/vendor/htmx.min.js"></script>
+  <script src="assets/chat.js"></script>
+</body>
+</html>
