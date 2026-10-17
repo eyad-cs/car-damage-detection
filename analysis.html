@@ -1,0 +1,32 @@
+<!-- نعرض الصورة والنتيجة القادمة من النموذج، دون رسم أو تخمين محلي. -->
+{% if analysis and analysis.get('success') %}
+  {% set image = web_link(analysis.get('imageUrl')) %}
+  {% if image %}
+  <a href="{{ image }}" target="_blank" rel="noopener noreferrer">
+    <img class="damage-image" src="{{ image }}" alt="صورة السيارة مع مربعات تحدد أماكن الضرر">
+  </a>
+  {% else %}<p class="result-message">لم ترسل الخدمة رابط الصورة المحددة عليها الأضرار.</p>{% endif %}
+  <p class="damage-level">شدة الضرر: <b>{{ analysis.get('severity') or 'لم تحددها الخدمة' }}</b></p>
+  {% if analysis.get('damages') %}
+  <p class="note">القطع المتضررة؛ أزل التحديد عن أي قطعة لا تريد البحث عنها.</p>
+  <div class="damage-table">
+    <table>
+      <thead><tr><th>القطعة</th><th>نوع الضرر</th><th>المكان</th></tr></thead>
+      <tbody>
+      {% for damage in analysis['damages'] %}
+        <tr>
+          <td><label><input type="checkbox" form="all-parts-form" name="detected" value="{{ damage['partName'] }}" checked> {{ damage['partName'] }}</label></td>
+          <td>{{ damage.get('damageType') or 'غير محدد' }}</td>
+          <td>{{ damage.get('location') or 'غير محدد' }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}<p class="result-message">لم يحدد النموذج قطعًا متضررة. يمكنك إضافة القطع يدويًا أدناه.</p>{% endif %}
+{% elif analysis %}
+  <p class="result-message" role="status">{{ analysis.get('message') or 'تعذّر تحليل الصورة. حاول مرة ثانية.' }}</p>
+{% else %}
+  <p class="gray-text">ستظهر هنا الصورة المحددة عليها الأضرار والقطع المتضررة.</p>
+{% endif %}
+{% if analysis %}<div id="all-results" hx-swap-oob="innerHTML"></div>{% endif %}
