@@ -9,7 +9,7 @@ app = Flask(__name__, template_folder=".", static_folder="assets")
 # ثوابت بروابط الخدمات ومفتاح البحث (مثل String في جافا)
 API_URL = "https://baseerah.duckdns.org/webhook/parts-search"
 API_KEY = "X9p#vL2$mPq7!kR4"
-CHAT_API_URL = "https://parts-api-fragrant-glitter-6532.fly.dev/extract"
+CHAT_API_URL = "https://dilute-uncheck-eastward.ngrok-free.dev/extract"
 ANALYSIS_API_URL = ""  # فارغ حاليًا حتى يرسل زميلك رابط خدمة تحليل الصور
 
 # قاموس السيارات (يشبه HashMap في جافا): كل شركة بداخلها طرازاتها بالإنجليزية والعربية
